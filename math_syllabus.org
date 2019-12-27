@@ -1,0 +1,166 @@
+Mathematics in Game Development  
+
+* Course Description
+  This is an overview and introduction to the fundamental math you need for game development. 
+  We do not go in depth on many topics. 
+  The goal isn't to teach you everything you'll ever need to know. It's to introduce you to a lot of topics in the field which you can go more in depth when needed. I want you to have the tools you study more on your own, and to figure out how to solve problems. 
+  We'll learn some algebra, geometry, trigonometry, and linear algebra. These are all entire fields of mathematics. 
+
+  Usually in games we encounter unique and specific problems, so you can't just plug in solutions. Part of your job as a game programmer is being able to do the math to solve problems.
+* Goals
+  How to break down and solve problems.
+  Survey of how math is used in game development. 
+  How to express design in terms of math. 
+* Intro Quiz
+  Maybe this will intimidate people? 
+  Could be interesting to just list a bunch of terms, see how many they can provide a definition for, and then by the end they should know them all. 
+* List
+  List all the types of math problems you can think of in games. Can be simple equations like "how many pixels of the health bar should we draw" or more sophisticated things like collision detection, rendering, etc
+  This is probably a better type of intro quiz, and ice-breaking exercise. 
+** Weapon damage
+   A weapon deals damage 42 times per second. The player has 100 health. If you want the player to be killed in 1 second assuming that all 42 hits landed, how much damage should it deal?
+
+   How would increasing the damage affect how quickly the player dies? (faster obviously, but what's the proportion)
+** Door 1
+   You want a door to swing open in 1.5 seconds. How many radians should it move per second to reach the open position (how many degrees is the open position?). How many radians should it move per frame (assuming 60 frames a second)
+** Door 2
+   The door handle is attached to the player's hand in some way. Calculate how many radians you should rotate it by, based on the distance the player has traveled this frame. (need to calculate the LEFT vector)
+   (this is from Stageplay)
+** Mario Chain Enemy
+   The player can move 2 meters per second. 
+   There is an enemy chained to a post. It can move at 2.5 m/s
+   How long should it's chain be to make sure that the player can escape if they don't get too close (this is pretty vague. How about if they don't get more than half-way the chain-length to the post)
+* Intro
+  Math is everywhere. 
+  "The unreasonable effectiveness of mathematics in the natrual sciences."
+  There is no agreed upon undertsanding of what math is. Some people say that it's a description of how the universe works, but that doesn't mean there is any math actually going on. It's just a language which is suited to describing the types of things that do happen. It's like describing colors. We know that the color of a rose is because it absorbs all other lightwaves. Calling it red is a conveinent and expressive way to describe that process. 
+  Another school of thought is that yes, there are definitely mathematical processes going on. 
+
+  While this is very profound, interesting, and important stuff, we'll stick with a more meager defintion: Math is one of the tools that programmers use to express game design. 
+  What's interesting about this is that whether or not math merely describes, or actually determines the world, in a computer program, it most definitely determines it. 
+* Activities in Class
+  I have 2 2 hour classes a week. 
+
+  Look at a feature in a video game and describe it in terms of mathematics. 
+  -- Problems: easy to pick a cheap answer like "their healthbar goes down". A lot of stuff is hidden: "when the fov decreases far away objects appear close because the projection matrixs transforms points..."
+  -- Could begin to notice more sophisticated things as their understanding increases. 
+
+  Come up with gameplay features that you can desribe mathematically. 
+* Homework
+  Need to write it out and turn in on paper. No email, no ecampus. Must be turned in in class. 
+
+  Need to visualize the problem ( I don't wanna hear "I'm not a visual person". Part of education is learning different ways of learning. I'm not an auditory learner, but if I'm playing piano it'd be foolish to do it without listening. )
+* Arithmetic
+  We have 4 basic operations
+  Addition
+  Subtraction
+  Multiplication
+  Division
+
+  Order of operations! PEMDAS. This is a convention that everyone adheres to about what order to do operations in. 
+  I try to be very explicit about specifying the order that I want operations to happen in. 
+  Parentheses
+  Exponents
+  Multiplication
+  Division
+  Addition
+  Subtraction
+
+  Types of numbers
+  Whole/natural numbers (0 1 2 3 ...)
+  Integers (... -3 -2 -1 0 1 2 3 ...)
+  Real numbers
+
+  We will primarily be dealing with real numbers because games are continuous in space and not discrete. (go into a bit of history about real numbers). 
+  Whole numbers do come up a lot when we are talking about the number of elements of something, a specific instnace of something, and so on. 
+* Variables
+  In math and programming we use variables to refer to values and expressions. 
+  A value is just a number. 
+  An expression is a series of operations. 2 + 2, 0 - 1, 8 * 3, 9 / 2, are all expressions
+
+  A variable is a representation or name used to represent a value.
+
+  In math we never have a variable that equals two different things. Once it's value is stated, it never changes. 
+
+  To make a variable we simply write the name, an equals sign, and then a value 
+  x = 1001
+  y = 9
+  n = 256
+
+Usually we use single letters for variables in math, but often in programming we use names, because what we're representing is not abstract, but concrete. 
+
+* Equations
+  Equations are statements saying that something is true. 
+  The simplest equation would be something like 
+
+  The simplest type of equation is once that we can compute, and determine it's truthfullness based on the value produced. 
+  2 + 2 = 4 
+  0 - 1 = -1
+
+  Other examples
+  x = 2 * 2 * 2
+  y = 1 + 2 / 3
+
+  The two main things equations are used for: 
+    To produce a value given certain inputs. This is called a function. They are written like f(x) = ...
+      -- (do I want to harp on the every input must produce unique output?) )
+      These are really useful for things like "want something to change like this over time"
+      "This is how much health to take away if my armor is x and their damage is y"
+    To solve and figure out the desired value (this can be used for things like "if my character is moving this fast, and I want a character to catch him in 10 seconds if he's this far away, how fast should my character go?)
+      What is the distance between two points in space (characters, items, UI elements, etc)
+      $ MORE OBVIOUS EXAMPLES
+
+  
+
+  You can do operations on an equation, but anything you do to one side of the equation you must do to the other. Otherwise it will no longer be the same equation. 
+  These are known as "reciprocal operations" and let you rephrase/rearrange your problem. 
+
+  An equation can have more than one unknown. 
+* Cartesian Coordinates
+* Unit Circle / Trig
+  Trig is most useful in 2 dimensions. Linear algebra is amuch more useful tool for dealing with 3D gemoetry. But a lot of problems in games can actually be reduced to 2 dimensions, at which point trig becomes very useful again. Example: turning a 3D model of a character. It's true that our game is 3D, but the rotation of our character's body is essentially 2D: they're on a flat surface, and they are always oriented upright. So we can use trig to find the radians about their upright vector to turn the character. Being able to express a problem in simpler, more confined terms is usually a good thing. 
+* Percentages and Interpolation
+* Linear Algebra
+  Dot product
+  Cross Product
+  Project onto line
+  Projection matrix
+  Coordinate systems
+
+* 3D geometry
+  Planes
+  Line
+  Vertices
+  Collision Detection: point-shape, line-shape, line-line, shape-shape intersection. Closest points on line, on shape
+* Calculus
+* Discrete Mathematics
+  Games simulate continuous motion by displaying a series of discrete frames quickly. Everything that happens in a game, under the hood, is discrete. We simulate at time t, then draw the results, then simulate at time t2. Even tho the equation may be continuous, we are simulating it in discrete chunks. 
+  Example: if an object is moving to the right with velocity 60, and our FPS is 60, then it will move 1 unit every frame. That means if we frame-stepped our game we would see it teleport between coordinate 0 & 1, 1 & 2, etectera
+  This does not seem to be the way the world really works (?)
+* Probability
+  LOST ALL THIS DATA FUCK!
+{this is the only example I've found where P(A | B) doesn't just wind up being P(A). The fact that they are almost always the same is really not intuitive to me. }
+
+** Problems
+   Given a card-game find how many copies of cards you're allowed to have in a deck if you want the probability of drawing that card to be N
+
+   Find the probabilities of the different hands in poker. 
+   How would you change the rules to increase the probability of getting certain hands?
+   How about increasing the probability gap between the lower tier and higher tier hands (like let's say you want 30% chance of a low-tier hand, but a 1% chance of getting the highest hand)
+
+* Resources
+3Blue1Brown Linear Algebra Playlist
+https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
+
+The Essence of Calculus
+https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr
+
+https://www.youtube.com/watch?v=d4EgbgTm0Bg
+
+https://www.khanacademy.org/
+
+Various tutorials on some math and physics game dev stuff. 
+http://www.allenchou.net/blog/
+
+Truth in Game Design (
+https://www.youtube.com/watch?v=C5FUtrmO7gI
