@@ -1,4 +1,10 @@
-Mathematics in Game Development  
+#+HTML_HEAD: <style type="text/css">body{ max-width:50%; }</style>
+#+HTML_MATHJAX: align: right indent: 8em tagside: left font: Cambria
+#+HTML_MATHJAX: cancel.js noErrors.js
+
+#+TITLE: Mathematics in Game Development  
+#+AUTHOR: Patrick Collin Eye
+#+EMAIL: ceye@dcccd.edu
 
 * Course Description
   This is an overview and introduction to the fundamental math you need for game development. 
@@ -7,6 +13,8 @@ Mathematics in Game Development
   We'll learn some algebra, geometry, trigonometry, and linear algebra. These are all entire fields of mathematics. 
 
   Usually in games we encounter unique and specific problems, so you can't just plug in solutions. Part of your job as a game programmer is being able to do the math to solve problems.
+
+  Game developers often have to read up on a specific topic. This means researching, finding and reading mathematical papers.
 * Goals
   How to break down and solve problems.
   Survey of how math is used in game development. 
@@ -46,6 +54,8 @@ Mathematics in Game Development
   -- Could begin to notice more sophisticated things as their understanding increases. 
 
   Come up with gameplay features that you can desribe mathematically. 
+
+  We can do coding exercises in class. It'll help introduce students to programming concepts.
 * Homework
   Need to write it out and turn in on paper. No email, no ecampus. Must be turned in in class. 
 
@@ -66,13 +76,26 @@ Mathematics in Game Development
   Addition
   Subtraction
 
-  Types of numbers
-  Whole/natural numbers (0 1 2 3 ...)
-  Integers (... -3 -2 -1 0 1 2 3 ...)
-  Real numbers
+  Types of numbers:
+  - Whole/natural numbers (0 1 2 3 ...)
+  - Integers: (... -3 -2 -1 0 1 2 3 ...)
+  - Real numbers: (-1001 ... -3.145 ... -0.1001 ... 0 ... 0.999 ... 1 ... 2.71828 ...)
 
   We will primarily be dealing with real numbers because games are continuous in space and not discrete. (go into a bit of history about real numbers). 
   Whole numbers do come up a lot when we are talking about the number of elements of something, a specific instnace of something, and so on. 
+
+** Powers
+  Raising a number N to a power M means to multiply N by itself M times.
+  \begin{equation}
+  2^{3} = 2 * 2 * 2 = 8
+  \end{equation}  
+
+  A number raised to the 0 power always equals 1. 
+
+  A number raised to the 1 power always equals itself.
+
+  Raising a number N to a power -M 
+** Roots
 * Variables
   In math and programming we use variables to refer to values and expressions. 
   A value is just a number. 
@@ -98,8 +121,12 @@ Usually we use single letters for variables in math, but often in programming we
   0 - 1 = -1
 
   Other examples
+  \begin{equation}
   x = 2 * 2 * 2
-  y = 1 + 2 / 3
+  \end{equation}
+  \begin{equation}
+  y = 1 + \frac{2}{3}
+  \end{equation}
 
   The two main things equations are used for: 
     To produce a value given certain inputs. This is called a function. They are written like f(x) = ...
@@ -115,12 +142,20 @@ Usually we use single letters for variables in math, but often in programming we
   You can do operations on an equation, but anything you do to one side of the equation you must do to the other. Otherwise it will no longer be the same equation. 
   These are known as "reciprocal operations" and let you rephrase/rearrange your problem. 
 
+  Parametric Equations: These assign an function to each parameter. We use these a lot in games. 
+  Example: when spawning enemies you want them to appear in a circle around a certain point. You would define their x and y position with the cos and sin functions respectively.
+
   An equation can have more than one unknown. 
+
+** Solving Equations
 * Cartesian Coordinates
+  Just like we have a number line for 1 dimension, we can create two perpendicular number lines.
 * Unit Circle / Trig
   Trig is most useful in 2 dimensions. Linear algebra is amuch more useful tool for dealing with 3D gemoetry. But a lot of problems in games can actually be reduced to 2 dimensions, at which point trig becomes very useful again. Example: turning a 3D model of a character. It's true that our game is 3D, but the rotation of our character's body is essentially 2D: they're on a flat surface, and they are always oriented upright. So we can use trig to find the radians about their upright vector to turn the character. Being able to express a problem in simpler, more confined terms is usually a good thing. 
 * Percentages and Interpolation
 * Linear Algebra
+  Addition & Subtraction & Scaling
+  Length
   Dot product
   Cross Product
   Project onto line
@@ -130,13 +165,65 @@ Usually we use single letters for variables in math, but often in programming we
 * 3D geometry
   Planes
   Line
+  Rays
   Vertices
   Collision Detection: point-shape, line-shape, line-line, shape-shape intersection. Closest points on line, on shape
 * Calculus
+  Limits
+  Derivative
+  Integral
+  Fundamental Theorem of Calculus
 * Discrete Mathematics
   Games simulate continuous motion by displaying a series of discrete frames quickly. Everything that happens in a game, under the hood, is discrete. We simulate at time t, then draw the results, then simulate at time t2. Even tho the equation may be continuous, we are simulating it in discrete chunks. 
   Example: if an object is moving to the right with velocity 60, and our FPS is 60, then it will move 1 unit every frame. That means if we frame-stepped our game we would see it teleport between coordinate 0 & 1, 1 & 2, etectera
   This does not seem to be the way the world really works (?)
+* Algorithms
+  In programming we are making defining processes that happen over time. The description or rules of a process are called an algorithm. We're all familiar with algorithms in our daily life: how to bake a cake is an algorithm because it gives instructions of what steps to execute to produce the desired output. 
+  
+  Thinking in terms of algorithms is important for game programmers because we are dealing with complex systems and the desired outcome is ususally many steps away. Math is one of the tools we use to describe the operations we want to perform, but it is ususally not as simple as doing one thing. 
+  
+  Example: you have an NPC who you want to rotate to face an object. You can describe mathematically how much you want him to turn. You can even describe how much you want him to turn every frame, so that it happens over time. But you also need to figure out when he should start facing an object; for how long he should face it; how he picks the object to face, and so on.
+
+  There are a two basic tools that programmers use to create algorithms.
+  
+  - Conditionals :: This is a way to specify if some instruction should be carried out based on a condition being satisfied (meaning that it is true). Usually these are written using "if" and "else". 
+
+    *Example*: In a recipe you don't put the cake in the oven until the temperature is 400 degrees.
+
+  - Loops :: This is a way to specify that we want an instruction carried out N times, or until a certain condition is satisfied.
+
+    *Example 1*: take 3 eggs and crack them into a bowl. 
+    
+    *Example 2*: 
+    1) Put a slice of bacon in the pan. 
+    2) /IF/ there is room, goto step 1)
+ 
+  Often we will write algorithms with numbers next to the step so that we can refer to a step with a number, and issue instructions like "goto intsruction N".
+  
+  Let's look at an example of a cake recipe to see an algorithm:
+  
+  1) Get a bowl, 3 eggs, flour, sugar, and butter
+  2) /LOOP/:
+     - Take an egg and put in the bowl
+     - /IF/ there are less than 3 eggs in the bowl, goto step 2)
+  3) Put 2 cups of flower in the bowl.
+  4) Put 1 stick of butter in the bowl.
+  5) Preheat the oven to 400 degrees.
+  6) /IF/ the oven is not 400 degrees, goto step 8)
+  7) Put the bowl in the oven.
+  8) Wait.
+  9) /IF/ it has been 30 minutes, goto step 10). /ELSE/ goto step 8)
+  10) Take the cake out of the oven.
+   
+  An algorithm that underlies all games is this:
+  
+  1) /LOOP/:
+     - GetInput()
+     - Simulate()
+     - Render()
+     - /IF/ game-over goto 2)
+     - /ELSE/ goto step 1)
+  2) Close the game.
 * Probability
   LOST ALL THIS DATA FUCK!
 {this is the only example I've found where P(A | B) doesn't just wind up being P(A). The fact that they are almost always the same is really not intuitive to me. }
@@ -148,7 +235,27 @@ Usually we use single letters for variables in math, but often in programming we
    How would you change the rules to increase the probability of getting certain hands?
    How about increasing the probability gap between the lower tier and higher tier hands (like let's say you want 30% chance of a low-tier hand, but a 1% chance of getting the highest hand)
 
+* Quotes
+  In my opinion, everything happens in nature in a mathematical way. 
+  -- Renes Descarte
+
+  Counting is the religion of this generation it is its hope and its salvation.
+  -- Gertrude Stein
+
+  "If you manage to look closely enough at this simulation function, you will always inevitably find some point, actually many points, where the implementation actually happens in the universe, and not from the programmer. And what the programmer has managed to do is encapsulate a bunch of these little things that the universe does until he has built up a bigger structure."
+  -- Jonathan Blow
+* Vocabulary
+  Analogy
+  
+  Metaphor
+  
+  Parallel
+  
+  Horizontal
+  
+  Vertical
 * Resources
+** Online
 3Blue1Brown Linear Algebra Playlist
 https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
 
@@ -164,3 +271,12 @@ http://www.allenchou.net/blog/
 
 Truth in Game Design (
 https://www.youtube.com/watch?v=C5FUtrmO7gI
+
+
+http://immersivemath.com/ila/index.html
+** Books
+   Real-Time Collision Detection
+
+   Concrete Mathematics
+   
+   Real-Time Rendering
