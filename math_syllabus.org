@@ -1,10 +1,13 @@
-#+HTML_HEAD: <style type="text/css">body{ max-width:50%; }</style>
-#+HTML_MATHJAX: align: right indent: 8em tagside: left font: Cambria
+#+HTML_HEAD: <style type="text/css">body{ max-width: 800px; font-size: x-large; }</style>
+#+HTML_MATHJAX: scale: 400 align: left indent: 0em tagside: left font: Cambria
 #+HTML_MATHJAX: cancel.js noErrors.js
 
 #+TITLE: Mathematics in Game Development  
 #+AUTHOR: Patrick Collin Eye
 #+EMAIL: ceye@dcccd.edu
+
+# Documentation for latex/mathjax commands in org
+# https://orgmode.org/mathjax/docs/html/tex.html
 
 * Course Description
   This is an overview and introduction to the fundamental math you need for game development. 
@@ -77,9 +80,19 @@
   Subtraction
 
   Types of numbers:
-  - Whole/natural numbers (0 1 2 3 ...)
-  - Integers: (... -3 -2 -1 0 1 2 3 ...)
-  - Real numbers: (-1001 ... -3.145 ... -0.1001 ... 0 ... 0.999 ... 1 ... 2.71828 ...)
+  - Whole/natural numbers
+  \begin{equation}
+  (0, 1, 2, 3 ...)
+  \end{equation}
+  - Integers: 
+  \begin{equation}
+  (... -3, -2, -1, 0, 1, 2, 3, ...)
+  \end{equation}
+  - Real numbers: 
+  \begin{equation}
+  (-1001, ... -3.145, ... -0.1001, ... 0a ... 0.999, ... 1, ... 2.71828, ...)
+  \end{equation}
+
 
   We will primarily be dealing with real numbers because games are continuous in space and not discrete. (go into a bit of history about real numbers). 
   Whole numbers do come up a lot when we are talking about the number of elements of something, a specific instnace of something, and so on. 
@@ -162,6 +175,37 @@ Usually we use single letters for variables in math, but often in programming we
   Projection matrix
   Coordinate systems
 
+  \begin{equation*}
+  v = 
+  \begin{pmatrix}
+  x \\
+  y \\
+  z \\
+  \end{pmatrix}
+  \end{equation*}
+
+** Matrices
+   A matrix multiplied by a vector produces a new vector. We say that it "transforms" that vector.
+   
+   We call this linear, because any point along the same line as the input vector will map to a point along the same line as the output vector. This Transformation is *big deal*
+   
+   Using a particular matrix, we can transform a point in 3D space onto a 2 dimensional surface. That 2D surface is a screen. 
+** Solving equations
+   We can take multiple equations, put the coefficients into a matrix, and the variables into the input vector, and the righthandside of the equations into the output vector.
+
+   To solve this we need to find which input vector this matrix maps to the output vector. We get this by applying the inverse matrix to the output vector.
+   Finding an inverse of an arbitrary matrix is expensive. 
+   
+   \begin{equation*}
+   A = 
+   \begin{pmatrix}
+   1 & 2 & 3 \\
+   4 & 5 & 6 \\
+   7 & 8 & 9
+   \end{pmatrix}
+   \end{equation*}
+** Eigenvector
+   Any vector which is only scaled when multiplied by a matrix M is called an Eigenvector of that matrix. How much its scaled by is called the Eigenvalue
 * 3D geometry
   Planes
   Line
@@ -224,6 +268,13 @@ Usually we use single letters for variables in math, but often in programming we
      - /IF/ game-over goto 2)
      - /ELSE/ goto step 1)
   2) Close the game.
+
+# C-c ' to edit source-code 
+#+BEGIN_SRC C
+  int main() {
+      printf("Hello World 0123");
+  }
+#+END_SRC
 * Probability
   LOST ALL THIS DATA FUCK!
 {this is the only example I've found where P(A | B) doesn't just wind up being P(A). The fact that they are almost always the same is really not intuitive to me. }
@@ -237,12 +288,19 @@ Usually we use single letters for variables in math, but often in programming we
 
 * Quotes
   In my opinion, everything happens in nature in a mathematical way. 
+  
   -- Renes Descarte
 
+
+
   Counting is the religion of this generation it is its hope and its salvation.
+  
   -- Gertrude Stein
 
+
+
   "If you manage to look closely enough at this simulation function, you will always inevitably find some point, actually many points, where the implementation actually happens in the universe, and not from the programmer. And what the programmer has managed to do is encapsulate a bunch of these little things that the universe does until he has built up a bigger structure."
+  
   -- Jonathan Blow
 * Vocabulary
   Analogy
@@ -256,24 +314,35 @@ Usually we use single letters for variables in math, but often in programming we
   Vertical
 * Resources
 ** Online
-3Blue1Brown Linear Algebra Playlist
-https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab
+- [[https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab][3Blue1Brown Linear Algebra Playlist]]
 
-The Essence of Calculus
-https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr
+- [[https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr][The Essence of Calculus]]
 
-https://www.youtube.com/watch?v=d4EgbgTm0Bg
+- [[https://www.youtube.com/watch?v=d4EgbgTm0Bg][Visualizing Quaternions]]
 
-https://www.khanacademy.org/
+- [[https://www.khanacademy.org/][Kahn Academy]]
+  - Lots of video courses on math.
 
-Various tutorials on some math and physics game dev stuff. 
-http://www.allenchou.net/blog/
+- [[http://www.allenchou.net/blog/][Allen Chou's Website]]
+  - Various tutorials on some math and physics game dev stuff by a programmer at Naughty Dog
 
-Truth in Game Design (
-https://www.youtube.com/watch?v=C5FUtrmO7gI
+- [[https://www.youtube.com/watch?v=C5FUtrmO7gI][Truth in Game Design]]
+  - Lecture by Jonathon Blow which touches on how math and games relate.
 
+Immersive Math visual textbook
+- http://immersivemath.com/ila/index.html
 
-http://immersivemath.com/ila/index.html
+Math For Game Programmers GDC Talk Series
+- https://www.youtube.com/results?search_query=gdc+math+for+game+programmers
+
+Papers We Love
+- https://www.youtube.com/user/PapersWeLove/videos
+
+The Applications of Matrices
+- https://www.youtube.com/watch?v=rowWM-MijXU&t=9s
+
+Geometry of Linear Algebra (MIT Course of which there are more videos)
+- https://www.youtube.com/watch?v=uNKDw46_Ev4
 ** Books
    Real-Time Collision Detection
 
