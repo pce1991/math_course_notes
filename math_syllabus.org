@@ -176,12 +176,12 @@ Usually we use single letters for variables in math, but often in programming we
   Coordinate systems
 
   \begin{equation*}
-  v = 
-  \begin{pmatrix}
-  x \\
-  y \\
-  z \\
-  \end{pmatrix}
+    v = 
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    \end{pmatrix}
   \end{equation*}
 
 ** Matrices
@@ -190,6 +190,161 @@ Usually we use single letters for variables in math, but often in programming we
    We call this linear, because any point along the same line as the input vector will map to a point along the same line as the output vector. This Transformation is *big deal*
    
    Using a particular matrix, we can transform a point in 3D space onto a 2 dimensional surface. That 2D surface is a screen. 
+
+   We can say that our vector is how how many units to move along our basis vectors \hat{i} and \hat{j}
+
+   Let's put our basis vectors into a matrix
+
+   \begin{equation*}
+     I = 
+     \begin{pmatrix}
+     1 & 0 \\
+     0 & 1 \\
+     \end{pmatrix}
+   \end{equation*}
+
+   This is known as an Identity matrix because if we multiply any vector by this matrix, we'll get the same vector, just 
+
+   \begin{equation}   
+   N * 1 = N
+   \begin{end}   
+
+   \begin{equation}   
+   I * V = V
+   \begin{end}   
+
+   To see how this works let's see how we multiply a vector by a matrix. 
+
+   \begin{equation*}
+     \begin{pmatrix}
+     a & c \\
+     b & d \\
+     \end{pmatrix}
+
+     * 
+
+     \begin{pmatrix}
+     x \\
+     y \\
+     \end{pmatrix}
+
+     = 
+     
+     \begin{pmatrix}
+     x * a + y * c \\
+     x * b + y * d \\
+     \end{pmatrix}
+     
+   \end{equation*}
+
+   Algorithmically you can think of this process as taking each row of our matrix M, and multiplying it by our vector V. The Nth row of \prime{V} = the nth row of M * V.
+
+   Another way to visualize this is:
+
+\begin{equation*}
+     \begin{pmatrix}
+     a & c \\
+     b & d \\
+     \end{pmatrix}
+
+     * 
+
+     \begin{pmatrix}
+     x \\
+     y \\
+     \end{pmatrix}
+
+     = 
+
+     x * 
+     \begin{pmatrix}
+     a \\
+     b \\
+     \end{pmatrix}
+
+     +
+
+     y * 
+     \begin{pmatrix}
+     c \\
+     d \\
+     \end{pmatrix}
+   \end{equation*}
+
+   Plugging in the values of our matrix I we can see that it doesn't change the vector at all. 
+   
+   \begin{equation*}
+     \begin{pmatrix}
+     1 & 0 \\
+     0 & 1 \\
+     \end{pmatrix}
+
+     * 
+
+     \begin{pmatrix}
+     x \\
+     y \\
+     \end{pmatrix}
+
+     = 
+     
+     \begin{pmatrix}
+     x * 1 + x * 0 \\
+     y * 0 + y * 1 \\
+     \end{pmatrix} 
+
+     =
+     
+     \begin{pmatrix}
+     x \\
+     y \\
+     \end{pmatrix}
+
+   \end{equation*}
+
+
+   Let's look at how to rotate a vector by 90 degrees using a matrix. First let's see what our basis vectors are if we rotate them by 90 degrees. 
+
+\begin{equation*}
+     \begin{pmatrix}
+     0 & -1 \\
+     1 & 0 \\
+     \end{pmatrix}
+\begin{equation*}
+        
+    Notice that our \hat{i} vector is vertical, and our \hat{j} is horizontal.
+
+    Now if we have a vector 
+
+\begin{equation*}
+     v = 
+     \begin{pmatrix}
+     1 \\
+     1 \\
+     \end{pmatrix}
+   \end{equation*}
+
+   We can plug the numbers in and do our multiplication, OR we can just visualize is. We'll take V and move it up 1, and then left 1. 
+
+   Becaues we're programmers we really aren't manually rotating matrices very often. It's useful to know how to do it, so you can write a function that does it for you, or solve a problem by hand if you really need to (and you might), but this visualization is something that we do all the time. 
+
+   Part2: composing matrix transformations. Matrix multiplication
+
+   # VECTOR (make this an emacs function)
+   \begin{equation*}
+     v = 
+     \begin{pmatrix}
+     x \\
+     y \\
+     z \\
+     \end{pmatrix}
+   \end{equation*}
+
+   Part 2: 
+   Homogeneous vector, and packing multiple transformations into a single matrix. 
+
+   Part 4: 3D transformations
+
 ** Solving equations
    We can take multiple equations, put the coefficients into a matrix, and the variables into the input vector, and the righthandside of the equations into the output vector.
 
