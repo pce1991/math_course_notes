@@ -1,0 +1,38 @@
+* Goals
+  How to break down and solve problems.
+  Survey of how math is used in game development. 
+  How to express design in terms of math. 
+* Intro Quiz
+  Maybe this will intimidate people? 
+  Could be interesting to just list a bunch of terms, see how many they can provide a definition for, and then by the end they should know them all. 
+* List
+  List all the types of math problems you can think of in games. Can be simple equations like "how many pixels of the health bar should we draw" or more sophisticated things like collision detection, rendering, etc
+  This is probably a better type of intro quiz, and ice-breaking exercise. 
+** Weapon damage
+   A weapon deals damage 42 times per second. The player has 100 health. If you want the player to be killed in 1 second assuming that all 42 hits landed, how much damage should it deal?
+
+   How would increasing the damage affect how quickly the player dies? (faster obviously, but what's the proportion)
+** Door 1
+   You want a door to swing open in 1.5 seconds. How many radians should it move per second to reach the open position (how many degrees is the open position?). How many radians should it move per frame (assuming 60 frames a second)
+** Door 2
+   The door handle is attached to the player's hand in some way. Calculate how many radians you should rotate it by, based on the distance the player has traveled this frame. (need to calculate the LEFT vector)
+   (this is from Stageplay)
+** Mario Chain Enemy
+   The player can move 2 meters per second. 
+   There is an enemy chained to a post. It can move at 2.5 m/s
+   How long should it's chain be to make sure that the player can escape if they don't get too close (this is pretty vague. How about if they don't get more than half-way the chain-length to the post)
+* Activities in Class
+  I have 2 2 hour classes a week. 
+
+  Look at a feature in a video game and describe it in terms of mathematics. 
+  -- Problems: easy to pick a cheap answer like "their healthbar goes down". A lot of stuff is hidden: "when the fov decreases far away objects appear close because the projection matrixs transforms points..."
+  -- Could begin to notice more sophisticated things as their understanding increases. 
+
+  Come up with gameplay features that you can desribe mathematically. 
+
+  We can do coding exercises in class. It'll help introduce students to programming concepts.
+
+* Homework
+  Need to write it out and turn in on paper. No email, no ecampus. Must be turned in in class. 
+
+  Need to visualize the problem ( I don't wanna hear "I'm not a visual person". Part of education is learning different ways of learning. I'm not an auditory learner, but if I'm playing piano it'd be foolish to do it without listening. )

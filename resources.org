@@ -1,0 +1,37 @@
+* Resources
+** Online
+- [[https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab][3Blue1Brown Linear Algebra Playlist]]
+
+- [[https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr][The Essence of Calculus]]
+
+- [[https://www.youtube.com/watch?v=d4EgbgTm0Bg][Visualizing Quaternions]]
+
+- [[https://www.khanacademy.org/][Kahn Academy]]
+  - Lots of video courses on math.
+
+- [[http://www.allenchou.net/blog/][Allen Chou's Website]]
+  - Various tutorials on some math and physics game dev stuff by a programmer at Naughty Dog
+
+- [[https://www.youtube.com/watch?v=C5FUtrmO7gI][Truth in Game Design]]
+  - Lecture by Jonathon Blow which touches on how math and games relate.
+
+Immersive Math visual textbook
+- http://immersivemath.com/ila/index.html
+
+Math For Game Programmers GDC Talk Series
+- https://www.youtube.com/results?search_query=gdc+math+for+game+programmers
+
+Papers We Love
+- https://www.youtube.com/user/PapersWeLove/videos
+
+The Applications of Matrices
+- https://www.youtube.com/watch?v=rowWM-MijXU&t=9s
+
+Geometry of Linear Algebra (MIT Course of which there are more videos)
+- https://www.youtube.com/watch?v=uNKDw46_Ev4
+** Books
+   Real-Time Collision Detection
+
+   Concrete Mathematics
+   
+   Real-Time Rendering
