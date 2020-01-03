@@ -177,11 +177,11 @@ Usually we use single letters for variables in math, but often in programming we
 
   \begin{equation*}
     v = 
-    \begin{pmatrix}
+    \begin{bmatrix}
     x \\
     y \\
     z \\
-    \end{pmatrix}
+    \end{bmatrix}
   \end{equation*}
 
 ** Matrices
@@ -191,16 +191,18 @@ Usually we use single letters for variables in math, but often in programming we
    
    Using a particular matrix, we can transform a point in 3D space onto a 2 dimensional surface. That 2D surface is a screen. 
 
+   EXPLAIN WHAT A LINEAR TRANSFORMATION IS AS OPPOSED TO AN ARBITRARY TRANSFORMATIONS: parallel lines remain parallel
+
    We can say that our vector is how how many units to move along our basis vectors \hat{i} and \hat{j}
 
    Let's put our basis vectors into a matrix
 
    \begin{equation*}
      I = 
-     \begin{pmatrix}
+     \begin{bmatrix}
      1 & 0 \\
      0 & 1 \\
-     \end{pmatrix}
+     \end{bmatrix}
    \end{equation*}
 
    This is known as an Identity matrix because if we multiply any vector by this matrix, we'll get the same vector, just 
@@ -216,24 +218,24 @@ Usually we use single letters for variables in math, but often in programming we
    To see how this works let's see how we multiply a vector by a matrix. 
 
    \begin{equation*}
-     \begin{pmatrix}
+     \begin{bmatrix}
      a & c \\
      b & d \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      * 
 
-     \begin{pmatrix}
+     \begin{bmatrix}
      x \\
      y \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      = 
      
-     \begin{pmatrix}
+     \begin{bmatrix}
      x * a + y * c \\
      x * b + y * d \\
-     \end{pmatrix}
+     \end{bmatrix}
      
    \end{equation*}
 
@@ -242,63 +244,63 @@ Usually we use single letters for variables in math, but often in programming we
    Another way to visualize this is:
 
 \begin{equation*}
-     \begin{pmatrix}
+     \begin{bmatrix}
      a & c \\
      b & d \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      * 
 
-     \begin{pmatrix}
+     \begin{bmatrix}
      x \\
      y \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      = 
 
      x * 
-     \begin{pmatrix}
+     \begin{bmatrix}
      a \\
      b \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      +
 
      y * 
-     \begin{pmatrix}
+     \begin{bmatrix}
      c \\
      d \\
-     \end{pmatrix}
+     \end{bmatrix}
    \end{equation*}
 
    Plugging in the values of our matrix I we can see that it doesn't change the vector at all. 
    
    \begin{equation*}
-     \begin{pmatrix}
+     \begin{bmatrix}
      1 & 0 \\
      0 & 1 \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      * 
 
-     \begin{pmatrix}
+     \begin{bmatrix}
      x \\
      y \\
-     \end{pmatrix}
+     \end{bmatrix}
 
      = 
      
-     \begin{pmatrix}
+     \begin{bmatrix}
      x * 1 + x * 0 \\
      y * 0 + y * 1 \\
-     \end{pmatrix} 
+     \end{bmatrix} 
 
      =
      
-     \begin{pmatrix}
+     \begin{bmatrix}
      x \\
      y \\
-     \end{pmatrix}
+     \end{bmatrix}
 
    \end{equation*}
 
@@ -306,11 +308,11 @@ Usually we use single letters for variables in math, but often in programming we
    Let's look at how to rotate a vector by 90 degrees using a matrix. First let's see what our basis vectors are if we rotate them by 90 degrees. 
 
 \begin{equation*}
-     \begin{pmatrix}
+     \begin{bmatrix}
      0 & -1 \\
      1 & 0 \\
-     \end{pmatrix}
-\begin{equation*}
+     \end{bmatrix}
+\end{equation*}
         
     Notice that our \hat{i} vector is vertical, and our \hat{j} is horizontal.
 
@@ -318,26 +320,113 @@ Usually we use single letters for variables in math, but often in programming we
 
 \begin{equation*}
      v = 
-     \begin{pmatrix}
+     \begin{bmatrix}
      1 \\
      1 \\
-     \end{pmatrix}
-   \end{equation*}
+     \end{bmatrix}
+ \end{equation*}
 
    We can plug the numbers in and do our multiplication, OR we can just visualize is. We'll take V and move it up 1, and then left 1. 
 
+   EXPLAIN THE RELATIONSHIP BETWEEN THIS AND THE UNIT CIRCLE: 
+
+   Why is it that the values when rotated by 90 degrees are (0, 1) and (-1, 0) respectively? Think about our unit circle. What is are the two functions that represent our (x, y) positions on the unit circle? So we can define parts of our rotation matrix as functions which take a value. And then we plug in our radians to get the values of each vector.
+
+\begin{equation*}
+     \begin{bmatrix}
+     cos(\theta) & -sin(\theta) \\
+     sin(\theta) & \cos(\theta) \\
+     \end{bmatrix}
+\end{equation*}
+
+   To verify this let's plug in our radians for 90 degrees: \pi / 2
+
+   \begin{equation*}
+     \begin{bmatrix}
+     0 & -1 \\
+     1 & 0 \\
+     \end{bmatrix}
+\end{equation*}
+
+   SCALING
+
+   What if we want to scale a vector so that it is twice as long?
+
+
    Becaues we're programmers we really aren't manually rotating matrices very often. It's useful to know how to do it, so you can write a function that does it for you, or solve a problem by hand if you really need to (and you might), but this visualization is something that we do all the time. 
 
-   Part2: composing matrix transformations. Matrix multiplication
+*** Problems
+    1) Make a matrix that represents your basis vectors rotated 180 degrees. 
+    2) Make a matrix that represents your basis vectors rotated 45 degrees. How would you find out the values of different vectors (hint: unit circle)
+    3) Let's say you have a point in quadrant 3. You want to rotate it so it's in quadrant 1. Find a matrix that you could apply to rotate it into that quadrant.
+    4) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    0.7853 & -0.7853\\
+    0.7853 & 0.7853\\
+    \end{bmatrix}
+    \end{equation*}
+    4) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    2 & 0\\
+    0 & 2\\
+    \end{bmatrix}
+    \end{equation*}
+    5) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    1 & 0\\
+    0 & 2\\
+    \end{bmatrix}
+    \end{equation*}
+    6) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    4 & 0\\
+    0 & 1\\
+    \end{bmatrix}
+    \end{equation*}
+    7) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    0.25 & 0\\
+    0 & 0.5\\
+    \end{bmatrix}
+    \end{equation*}
+    8) Draw 4 points on a graph representing a square. Multiply each point by this matrix. Make sure to label each point, and in the graph before and after. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    -1 & 0\\
+    0 & -1\\
+    \end{bmatrix}
+    \end{equation*}
+** Matrices Part 2
+Part2: composing matrix transformations. Matrix multiplication
+   SCALING & ROTATING
+   
+   Our matrix might have values such that it rotates, and scales the vector
+   \begin{equation*}
+    \begin{bmatrix}
+    0 & -2\\
+    -2 & 0\\
+    \end{bmatrix}
+    \end{equation*}
+
+    Notice that this matrix will not only rotate our by 90 degrees, but it also scales it by 2. This is a really powerful idea, because it means we can pack multiple transformations into a single vector. 
+
+    Not only can we pack everything into one matrix, but we can add concatenate transformations into that matrix by multiplying N matrices together. So we may have a matrix that scales a vector. But then we ight 
+
+   
 
    # VECTOR (make this an emacs function)
    \begin{equation*}
      v = 
-     \begin{pmatrix}
+     \begin{bmatrix}
      x \\
      y \\
      z \\
-     \end{pmatrix}
+     \end{bmatrix}
    \end{equation*}
 
    Part 2: 
@@ -353,11 +442,11 @@ Usually we use single letters for variables in math, but often in programming we
    
    \begin{equation*}
    A = 
-   \begin{pmatrix}
+   \begin{bmatrix}
    1 & 2 & 3 \\
    4 & 5 & 6 \\
    7 & 8 & 9
-   \end{pmatrix}
+   \end{bmatrix}
    \end{equation*}
 ** Eigenvector
    Any vector which is only scaled when multiplied by a matrix M is called an Eigenvector of that matrix. How much its scaled by is called the Eigenvalue
