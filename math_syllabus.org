@@ -1,5 +1,5 @@
 #+HTML_HEAD: <style type="text/css">body{ max-width: 800px; font-size: x-large; }</style>
-#+HTML_MATHJAX: scale: 400 align: left indent: 0em tagside: left font: Cambria
+#+HTML_MATHJAX: scale: 100 align: left indent: 0em tagside: left font: Cambria
 #+HTML_MATHJAX: cancel.js noErrors.js
 
 #+TITLE: Mathematics in Game Development  
@@ -18,29 +18,6 @@
   Usually in games we encounter unique and specific problems, so you can't just plug in solutions. Part of your job as a game programmer is being able to do the math to solve problems.
 
   Game developers often have to read up on a specific topic. This means researching, finding and reading mathematical papers.
-* Goals
-  How to break down and solve problems.
-  Survey of how math is used in game development. 
-  How to express design in terms of math. 
-* Intro Quiz
-  Maybe this will intimidate people? 
-  Could be interesting to just list a bunch of terms, see how many they can provide a definition for, and then by the end they should know them all. 
-* List
-  List all the types of math problems you can think of in games. Can be simple equations like "how many pixels of the health bar should we draw" or more sophisticated things like collision detection, rendering, etc
-  This is probably a better type of intro quiz, and ice-breaking exercise. 
-** Weapon damage
-   A weapon deals damage 42 times per second. The player has 100 health. If you want the player to be killed in 1 second assuming that all 42 hits landed, how much damage should it deal?
-
-   How would increasing the damage affect how quickly the player dies? (faster obviously, but what's the proportion)
-** Door 1
-   You want a door to swing open in 1.5 seconds. How many radians should it move per second to reach the open position (how many degrees is the open position?). How many radians should it move per frame (assuming 60 frames a second)
-** Door 2
-   The door handle is attached to the player's hand in some way. Calculate how many radians you should rotate it by, based on the distance the player has traveled this frame. (need to calculate the LEFT vector)
-   (this is from Stageplay)
-** Mario Chain Enemy
-   The player can move 2 meters per second. 
-   There is an enemy chained to a post. It can move at 2.5 m/s
-   How long should it's chain be to make sure that the player can escape if they don't get too close (this is pretty vague. How about if they don't get more than half-way the chain-length to the post)
 * Intro
   Math is everywhere. 
   "The unreasonable effectiveness of mathematics in the natrual sciences."
@@ -49,20 +26,6 @@
 
   While this is very profound, interesting, and important stuff, we'll stick with a more meager defintion: Math is one of the tools that programmers use to express game design. 
   What's interesting about this is that whether or not math merely describes, or actually determines the world, in a computer program, it most definitely determines it. 
-* Activities in Class
-  I have 2 2 hour classes a week. 
-
-  Look at a feature in a video game and describe it in terms of mathematics. 
-  -- Problems: easy to pick a cheap answer like "their healthbar goes down". A lot of stuff is hidden: "when the fov decreases far away objects appear close because the projection matrixs transforms points..."
-  -- Could begin to notice more sophisticated things as their understanding increases. 
-
-  Come up with gameplay features that you can desribe mathematically. 
-
-  We can do coding exercises in class. It'll help introduce students to programming concepts.
-* Homework
-  Need to write it out and turn in on paper. No email, no ecampus. Must be turned in in class. 
-
-  Need to visualize the problem ( I don't wanna hear "I'm not a visual person". Part of education is learning different ways of learning. I'm not an auditory learner, but if I'm playing piano it'd be foolish to do it without listening. )
 * Arithmetic
   We have 4 basic operations
   Addition
@@ -357,8 +320,11 @@ Usually we use single letters for variables in math, but often in programming we
 
 *** Problems
     1) Make a matrix that represents your basis vectors rotated 180 degrees. 
+
     2) Make a matrix that represents your basis vectors rotated 45 degrees. How would you find out the values of different vectors (hint: unit circle)
+
     3) Let's say you have a point in quadrant 3. You want to rotate it so it's in quadrant 1. Find a matrix that you could apply to rotate it into that quadrant.
+
     4) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
     \begin{equation*}
     \begin{bmatrix}
@@ -366,6 +332,7 @@ Usually we use single letters for variables in math, but often in programming we
     0.7853 & 0.7853\\
     \end{bmatrix}
     \end{equation*}
+
     4) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
     \begin{equation*}
     \begin{bmatrix}
@@ -373,6 +340,7 @@ Usually we use single letters for variables in math, but often in programming we
     0 & 2\\
     \end{bmatrix}
     \end{equation*}
+
     5) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
     \begin{equation*}
     \begin{bmatrix}
@@ -380,6 +348,7 @@ Usually we use single letters for variables in math, but often in programming we
     0 & 2\\
     \end{bmatrix}
     \end{equation*}
+
     6) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
     \begin{equation*}
     \begin{bmatrix}
@@ -387,20 +356,33 @@ Usually we use single letters for variables in math, but often in programming we
     0 & 1\\
     \end{bmatrix}
     \end{equation*}
-    7) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+    
+7) Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
     \begin{equation*}
     \begin{bmatrix}
     0.25 & 0\\
     0 & 0.5\\
     \end{bmatrix}
     \end{equation*}
-    8) Draw 4 points on a graph representing a square. Multiply each point by this matrix. Make sure to label each point, and in the graph before and after. What happened to that square?
+
+# Reflection about Y    
+8) Draw 4 points on a graph representing a square. Multiply each point by this matrix. Make sure to label each point, and in the graph before and after. What happened to that square?
+    \begin{equation*}
+    \begin{bmatrix}
+    -1 & 0\\
+    0 & 1\\
+    \end{bmatrix}
+    \end{equation*}
+    
+# rotation by 180 degrees
+   8) Draw 4 points on a graph representing a square. Multiply each point by this matrix. Make sure to label each point, and in the graph before and after. What happened to that square?
     \begin{equation*}
     \begin{bmatrix}
     -1 & 0\\
     0 & -1\\
     \end{bmatrix}
     \end{equation*}
+    
 ** Matrices Part 2
 Part2: composing matrix transformations. Matrix multiplication
    SCALING & ROTATING
@@ -556,40 +538,4 @@ Part2: composing matrix transformations. Matrix multiplication
   Horizontal
   
   Vertical
-* Resources
-** Online
-- [[https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab][3Blue1Brown Linear Algebra Playlist]]
 
-- [[https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr][The Essence of Calculus]]
-
-- [[https://www.youtube.com/watch?v=d4EgbgTm0Bg][Visualizing Quaternions]]
-
-- [[https://www.khanacademy.org/][Kahn Academy]]
-  - Lots of video courses on math.
-
-- [[http://www.allenchou.net/blog/][Allen Chou's Website]]
-  - Various tutorials on some math and physics game dev stuff by a programmer at Naughty Dog
-
-- [[https://www.youtube.com/watch?v=C5FUtrmO7gI][Truth in Game Design]]
-  - Lecture by Jonathon Blow which touches on how math and games relate.
-
-Immersive Math visual textbook
-- http://immersivemath.com/ila/index.html
-
-Math For Game Programmers GDC Talk Series
-- https://www.youtube.com/results?search_query=gdc+math+for+game+programmers
-
-Papers We Love
-- https://www.youtube.com/user/PapersWeLove/videos
-
-The Applications of Matrices
-- https://www.youtube.com/watch?v=rowWM-MijXU&t=9s
-
-Geometry of Linear Algebra (MIT Course of which there are more videos)
-- https://www.youtube.com/watch?v=uNKDw46_Ev4
-** Books
-   Real-Time Collision Detection
-
-   Concrete Mathematics
-   
-   Real-Time Rendering
