@@ -1,0 +1,652 @@
+% Created 2020-01-07 Tue 19:37
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{siunitx}
+
+\tolerance=1000
+\author{Patrick Collin Eye}
+\date{\today}
+\title{Mathematics in Game Development}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Course Description}
+\label{sec-1}
+This is an overview and introduction to the fundamental math you need for game development. 
+We do not go in depth on many topics. 
+The goal isn't to teach you everything you'll ever need to know. It's to introduce you to a lot of topics in the field which you can go more in depth when needed. I want you to have the tools you study more on your own, and to figure out how to solve problems. 
+We'll learn some algebra, geometry, trigonometry, and linear algebra. These are all entire fields of mathematics. 
+
+Usually in games we encounter unique and specific problems, so you can't just plug in solutions. Part of your job as a game programmer is being able to do the math to solve problems.
+
+Game developers often have to read up on a specific topic. This means researching, finding and reading mathematical papers.
+\section{Intro}
+\label{sec-2}
+Math is everywhere. 
+"The unreasonable effectiveness of mathematics in the natrual sciences."
+There is no agreed upon undertsanding of what math is. Some people say that it's a description of how the universe works, but that doesn't mean there is any math actually going on. It's just a language which is suited to describing the types of things that do happen. It's like describing colors. We know that the color of a rose is because it absorbs all other lightwaves. Calling it red is a conveinent and expressive way to describe that process. 
+Another school of thought is that yes, there are definitely mathematical processes going on. 
+
+While this is very profound, interesting, and important stuff, we'll stick with a more meager defintion: Math is one of the tools that programmers use to express game design. 
+What's interesting about this is that whether or not math merely describes, or actually determines the world, in a computer program, it most definitely determines it. 
+\section{Arithmetic}
+\label{sec-3}
+We have 4 basic operations
+Addition
+Subtraction
+Multiplication
+Division
+
+Order of operations! PEMDAS. This is a convention that everyone adheres to about what order to do operations in. 
+I try to be very explicit about specifying the order that I want operations to happen in. 
+Parentheses
+Exponents
+Multiplication
+Division
+Addition
+Subtraction
+
+Types of numbers:
+\begin{itemize}
+\item Whole/natural numbers
+\end{itemize}
+\begin{equation}
+(0, 1, 2, 3 ...)
+\end{equation}
+\begin{itemize}
+\item Integers:
+\end{itemize}
+\begin{equation}
+(... -3, -2, -1, 0, 1, 2, 3, ...)
+\end{equation}
+\begin{itemize}
+\item Real numbers:
+\end{itemize}
+\begin{equation}
+(-1001, ... -3.145, ... -0.1001, ... 0a ... 0.999, ... 1, ... 2.71828, ...)
+\end{equation}
+
+
+We will primarily be dealing with real numbers because games are continuous in space and not discrete. (go into a bit of history about real numbers). 
+Whole numbers do come up a lot when we are talking about the number of elements of something, a specific instnace of something, and so on. 
+
+\subsection{Powers}
+\label{sec-3-1}
+Raising a number N to a power M means to multiply N by itself M times.
+\begin{equation}
+2^{3} = 2 * 2 * 2 = 8
+\end{equation}  
+
+A number raised to the 0 power always equals 1. 
+
+A number raised to the 1 power always equals itself.
+
+Raising a number N to a power -M 
+\subsection{Roots}
+\label{sec-3-2}
+\section{Variables}
+\label{sec-4}
+In math and programming we use variables to refer to values and expressions. 
+A value is just a number. 
+An expression is a series of operations. 2 + 2, 0 - 1, 8 * 3, 9 / 2, are all expressions
+
+A variable is a representation or name used to represent a value.
+
+In math we never have a variable that equals two different things. Once it's value is stated, it never changes. 
+
+To make a variable we simply write the name, an equals sign, and then a value 
+x = 1001
+y = 9
+n = 256
+
+Usually we use single letters for variables in math, but often in programming we use names, because what we're representing is not abstract, but concrete. 
+
+\section{Equations}
+\label{sec-5}
+Equations are statements saying that something is true. 
+The simplest equation would be something like 
+
+The simplest type of equation is once that we can compute, and determine it's truthfullness based on the value produced. 
+2 + 2 = 4 
+0 - 1 = -1
+
+Other examples
+\begin{equation}
+x = 2 * 2 * 2
+\end{equation}
+\begin{equation}
+y = 1 + \frac{2}{3}
+\end{equation}
+
+The two main things equations are used for: 
+  To produce a value given certain inputs. This is called a function. They are written like f(x) = \ldots{}
+    -- (do I want to harp on the every input must produce unique output?) )
+    These are really useful for things like "want something to change like this over time"
+    "This is how much health to take away if my armor is x and their damage is y"
+  To solve and figure out the desired value (this can be used for things like "if my character is moving this fast, and I want a character to catch him in 10 seconds if he's this far away, how fast should my character go?)
+    What is the distance between two points in space (characters, items, UI elements, etc)
+    \$ MORE OBVIOUS EXAMPLES
+
+
+
+You can do operations on an equation, but anything you do to one side of the equation you must do to the other. Otherwise it will no longer be the same equation. 
+These are known as "reciprocal operations" and let you rephrase/rearrange your problem. 
+
+Parametric Equations: These assign an function to each parameter. We use these a lot in games. 
+Example: when spawning enemies you want them to appear in a circle around a certain point. You would define their x and y position with the cos and sin functions respectively.
+
+An equation can have more than one unknown. 
+
+\subsection{Solving Equations}
+\label{sec-5-1}
+\section{Cartesian Coordinates}
+\label{sec-6}
+Just like we have a number line for 1 dimension, we can create two perpendicular number lines.
+\section{Unit Circle / Trig}
+\label{sec-7}
+Trig is most useful in 2 dimensions. Linear algebra is amuch more useful tool for dealing with 3D gemoetry. But a lot of problems in games can actually be reduced to 2 dimensions, at which point trig becomes very useful again. Example: turning a 3D model of a character. It's true that our game is 3D, but the rotation of our character's body is essentially 2D: they're on a flat surface, and they are always oriented upright. So we can use trig to find the radians about their upright vector to turn the character. Being able to express a problem in simpler, more confined terms is usually a good thing. 
+\section{Percentages and Interpolation}
+\label{sec-8}
+\section{Linear Algebra}
+\label{sec-9}
+Addition \& Subtraction \& Scaling
+Length
+Dot product
+Cross Product
+Project onto line
+Projection matrix
+Coordinate systems
+Homogeneous matrices
+Quaternions (rotating a direction)
+Normalizing vectors
+
+\begin{equation*}
+  v = 
+  \begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  \end{bmatrix}
+\end{equation*}
+
+
+
+\subsection{Dot Product}
+\label{sec-9-1}
+The dot product is a very common and useful operation in game development. The dot product of two vectors is a scalar value. One way to think about this scalar is that it represents the differece in direction between the two vectors.
+
+We use the \( \cdot \) operator to represent the dot product.
+
+In terms of arithmetic, the dot product is the sum of each component of one vector, multilpied by the corresponding component of another vector. 
+
+If A and B are 2D vectors then
+
+\begin{equation*}
+  A \cdot B = (A_x \times B_x) + (A_y \times B_y)
+\end{equation*}
+
+And of course in 3 dimensions you just also had the product of the \(z\) components.
+
+\begin{equation*}
+  A \cdot B = (A_x \times B_x) + (A_y \times B_y) + (A_z \times B_z)
+\end{equation*}
+
+As the angle between the vectors \(\theta\) increases, we will be scaling \( \lVert A \rVert \lVert B \rVert \) by a smaller and smaller value, until the angle is \(\ang{90}\), at which point \(cos(\theta)\) = 0. As \(\theta\) increases past \(\ang{90}\), \(cos(\theta) < 0\), and our value is now negative, meaning that the two vectors point in different directions.
+
+But it gets better! We can do some algebra to find out what the angle between those vectors is.
+  \begin{equation*}
+  \theta = arccos\left( \frac{P \cdot Q}{\lVert P \rVert \lVert Q \rVert} \right)
+  \end{equation*}
+  
+\subsubsection{Problems}
+\label{sec-9-1-1}
+\subsection{Matrices}
+\label{sec-9-2}
+A matrix multiplied by a vector produces a new vector. We say that it "transforms" that vector.
+
+We call this linear, because any point along the same line as the input vector will map to a point along the same line as the output vector. This Transformation is \textbf{big deal}
+
+Using a particular matrix, we can transform a point in 3D space onto a 2 dimensional surface. That 2D surface is a screen. 
+
+EXPLAIN WHAT A LINEAR TRANSFORMATION IS AS OPPOSED TO AN ARBITRARY TRANSFORMATIONS: parallel lines remain parallel
+
+We can say that our vector is how how many units to move along our basis vectors \( \hat{i} \) and \( \hat{j} \)
+
+Let's put our basis vectors into a matrix
+
+\begin{equation*}
+  I = 
+  \begin{bmatrix}
+  1 & 0 \\
+  0 & 1 \\
+  \end{bmatrix}
+\end{equation*}
+
+This is known as an Identity matrix because if we multiply any vector by this matrix, we'll get the same vector, just 
+
+\begin{equation}   
+N * 1 = N
+\begin{end}   
+
+\begin{equation}   
+I * V = V
+\begin{end}   
+
+To see how this works let's see how we multiply a vector by a matrix. 
+
+\begin{equation*}
+  \begin{bmatrix}
+  a & c \\
+  b & d \\
+  \end{bmatrix}
+
+  * 
+
+  \begin{bmatrix}
+  x \\
+  y \\
+  \end{bmatrix}
+
+  = 
+  
+  \begin{bmatrix}
+  x * a + y * c \\
+  x * b + y * d \\
+  \end{bmatrix}
+  
+\end{equation*}
+
+Algorithmically you can think of this process as taking each row of our matrix M, and multiplying it by our vector V. The Nth row of $\prime$\{V\} = the nth row of M * V.
+
+Another way to visualize this is:
+
+\begin{equation*}
+     \begin{bmatrix}
+     a & c \\
+     b & d \\
+     \end{bmatrix}
+
+     * 
+
+     \begin{bmatrix}
+     x \\
+     y \\
+     \end{bmatrix}
+
+     = 
+
+     x * 
+     \begin{bmatrix}
+     a \\
+     b \\
+     \end{bmatrix}
+
+     +
+
+     y * 
+     \begin{bmatrix}
+     c \\
+     d \\
+     \end{bmatrix}
+   \end{equation*}
+
+Plugging in the values of our matrix I we can see that it doesn't change the vector at all. 
+
+\begin{equation*}
+  \begin{bmatrix}
+  1 & 0 \\
+  0 & 1 \\
+  \end{bmatrix}
+
+  * 
+
+  \begin{bmatrix}
+  x \\
+  y \\
+  \end{bmatrix}
+
+  = 
+  
+  \begin{bmatrix}
+  x * 1 + x * 0 \\
+  y * 0 + y * 1 \\
+  \end{bmatrix} 
+
+  =
+  
+  \begin{bmatrix}
+  x \\
+  y \\
+  \end{bmatrix}
+
+\end{equation*}
+
+
+Let's look at how to rotate a vector by 90 degrees using a matrix. First let's see what our basis vectors are if we rotate them by 90 degrees. 
+
+\begin{equation*}
+     \begin{bmatrix}
+     0 & -1 \\
+     1 & 0 \\
+     \end{bmatrix}
+\end{equation*}
+
+Notice that our \( \hat{i} \) vector is vertical, and our \( \hat{j} \) is horizontal.
+
+Now if we have a vector 
+
+\begin{equation*}
+     v = 
+     \begin{bmatrix}
+     1 \\
+     1 \\
+     \end{bmatrix}
+ \end{equation*}
+
+We can plug the numbers in and do our multiplication, OR we can just visualize is. We'll take V and move it up 1, and then left 1. 
+
+EXPLAIN THE RELATIONSHIP BETWEEN THIS AND THE UNIT CIRCLE: 
+
+Why is it that the values when rotated by 90 degrees are (0, 1) and (-1, 0) respectively? Think about our unit circle. What is are the two functions that represent our (x, y) positions on the unit circle? So we can define parts of our rotation matrix as functions which take a value. And then we plug in our radians to get the values of each vector.
+
+\begin{equation*}
+     \begin{bmatrix}
+     cos(\theta) & -sin(\theta) \\
+     sin(\theta) & \cos(\theta) \\
+     \end{bmatrix}
+\end{equation*}
+
+To verify this let's plug in our radians for 90 degrees: $\pi$ / 2
+
+   \begin{equation*}
+     \begin{bmatrix}
+     0 & -1 \\
+     1 & 0 \\
+     \end{bmatrix}
+\end{equation*}
+
+SCALING
+
+What if we want to scale a vector so that it is twice as long?
+
+
+Becaues we're programmers we really aren't manually rotating matrices very often. It's useful to know how to do it, so you can write a function that does it for you, or solve a problem by hand if you really need to (and you might), but this visualization is something that we do all the time. 
+
+\subsubsection{Problems}
+\label{sec-9-2-1}
+\begin{enumerate}
+\item Make a matrix that represents your basis vectors rotated 180 degrees.
+
+\item Make a matrix that represents your basis vectors rotated 45 degrees. How would you find out the values of different vectors (hint: unit circle)
+
+\item Let's say you have a point in quadrant 3. You want to rotate it so it's in quadrant 1. Find a matrix that you could apply to rotate it into that quadrant.
+
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+\end{enumerate}
+\begin{equation*}
+\begin{bmatrix}
+0.7853 & -0.7853\\
+0.7853 & 0.7853\\
+\end{bmatrix}
+\end{equation*}
+
+\begin{enumerate}
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+\end{enumerate}
+\begin{equation*}
+\begin{bmatrix}
+2 & 0\\
+0 & 2\\
+\end{bmatrix}
+\end{equation*}
+
+\begin{enumerate}
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+\end{enumerate}
+\begin{equation*}
+\begin{bmatrix}
+1 & 0\\
+0 & 2\\
+\end{bmatrix}
+\end{equation*}
+
+\begin{enumerate}
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+\end{enumerate}
+\begin{equation*}
+\begin{bmatrix}
+4 & 0\\
+0 & 1\\
+\end{bmatrix}
+\end{equation*}
+
+\begin{enumerate}
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. What happened to that square?
+\begin{equation*}
+\begin{bmatrix}
+0.25 & 0\\
+0 & 0.5\\
+\end{bmatrix}
+\end{equation*}
+\end{enumerate}
+
+\begin{enumerate}
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. Make sure to label each point, and in the graph before and after. What happened to that square?
+\begin{equation*}
+\begin{bmatrix}
+-1 & 0\\
+0 & 1\\
+\end{bmatrix}
+\end{equation*}
+\end{enumerate}
+
+\begin{enumerate}
+\item Draw 4 points on a graph representing a square. Multiply each point by this matrix. Make sure to label each point, and in the graph before and after. What happened to that square?
+\begin{equation*}
+\begin{bmatrix}
+-1 & 0\\
+0 & -1\\
+\end{bmatrix}
+\end{equation*}
+\end{enumerate}
+
+\subsection{Matrices Part 2}
+\label{sec-9-3}
+Part2: composing matrix transformations. Matrix multiplication
+   SCALING \& ROTATING
+
+Our matrix might have values such that it rotates, and scales the vector
+\begin{equation*}
+ \begin{bmatrix}
+ 0 & -2\\
+ -2 & 0\\
+ \end{bmatrix}
+ \end{equation*}
+
+Notice that this matrix will not only rotate our by 90 degrees, but it also scales it by 2. This is a really powerful idea, because it means we can pack multiple transformations into a single vector. 
+
+Not only can we pack everything into one matrix, but we can add concatenate transformations into that matrix by multiplying N matrices together. So we may have a matrix that scales a vector. But then we ight 
+
+
+
+\begin{equation*}
+  v = 
+  \begin{bmatrix}
+  x \\
+  y \\
+  z \\
+  \end{bmatrix}
+\end{equation*}
+
+Part 2: 
+Homogeneous vector, and packing multiple transformations into a single matrix. 
+
+Part 4: 3D transformations
+
+\subsection{Solving equations}
+\label{sec-9-4}
+We can take multiple equations, put the coefficients into a matrix, and the variables into the input vector, and the righthandside of the equations into the output vector.
+
+To solve this we need to find which input vector this matrix maps to the output vector. We get this by applying the inverse matrix to the output vector.
+Finding an inverse of an arbitrary matrix is expensive. 
+
+\begin{equation*}
+A = 
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+\end{equation*}
+\subsection{Eigenvector}
+\label{sec-9-5}
+Any vector which is only scaled when multiplied by a matrix M is called an Eigenvector of that matrix. How much its scaled by is called the Eigenvalue
+\section{3D geometry}
+\label{sec-10}
+Planes
+Line
+Rays
+Vertices
+Collision Detection: point-shape, line-shape, line-line, shape-shape intersection. Closest points on line, on shape
+\section{Calculus}
+\label{sec-11}
+Limits
+Derivative
+Integral
+Fundamental Theorem of Calculus
+\section{Discrete Mathematics}
+\label{sec-12}
+Games simulate continuous motion by displaying a series of discrete frames quickly. Everything that happens in a game, under the hood, is discrete. We simulate at time t, then draw the results, then simulate at time t2. Even tho the equation may be continuous, we are simulating it in discrete chunks. 
+Example: if an object is moving to the right with velocity 60, and our FPS is 60, then it will move 1 unit every frame. That means if we frame-stepped our game we would see it teleport between coordinate 0 \& 1, 1 \& 2, etectera
+This does not seem to be the way the world really works (?)
+\section{Algorithms}
+\label{sec-13}
+In programming we are making defining processes that happen over time. The description or rules of a process are called an algorithm. We're all familiar with algorithms in our daily life: how to bake a cake is an algorithm because it gives instructions of what steps to execute to produce the desired output. 
+
+Thinking in terms of algorithms is important for game programmers because we are dealing with complex systems and the desired outcome is ususally many steps away. Math is one of the tools we use to describe the operations we want to perform, but it is ususally not as simple as doing one thing. 
+
+Example: you have an NPC who you want to rotate to face an object. You can describe mathematically how much you want him to turn. You can even describe how much you want him to turn every frame, so that it happens over time. But you also need to figure out when he should start facing an object; for how long he should face it; how he picks the object to face, and so on.
+
+There are a two basic tools that programmers use to create algorithms.
+
+\begin{description}
+\item[{Conditionals}] This is a way to specify if some instruction should be carried out based on a condition being satisfied (meaning that it is true). Usually these are written using "if" and "else". 
+
+\textbf{Example}: In a recipe you don't put the cake in the oven until the temperature is 400 degrees.
+
+\item[{Loops}] This is a way to specify that we want an instruction carried out N times, or until a certain condition is satisfied.
+
+\textbf{Example 1}: take 3 eggs and crack them into a bowl. 
+
+\textbf{Example 2}: 
+\begin{enumerate}
+\item Put a slice of bacon in the pan.
+\item \emph{IF} there is room, goto step 1)
+\end{enumerate}
+\end{description}
+
+Often we will write algorithms with numbers next to the step so that we can refer to a step with a number, and issue instructions like "goto intsruction N".
+
+Let's look at an example of a cake recipe to see an algorithm:
+
+\begin{enumerate}
+\item Get a bowl, 3 eggs, flour, sugar, and butter
+\item \emph{LOOP}:
+\begin{itemize}
+\item Take an egg and put in the bowl
+\item \emph{IF} there are less than 3 eggs in the bowl, goto step 2)
+\end{itemize}
+\item Put 2 cups of flower in the bowl.
+\item Put 1 stick of butter in the bowl.
+\item Preheat the oven to 400 degrees.
+\item \emph{IF} the oven is not 400 degrees, goto step 8)
+\item Put the bowl in the oven.
+\item Wait.
+\item \emph{IF} it has been 30 minutes, goto step 10). \emph{ELSE} goto step 8)
+\item Take the cake out of the oven.
+\end{enumerate}
+
+An algorithm that underlies all games is this:
+
+\begin{enumerate}
+\item \emph{LOOP}:
+\begin{itemize}
+\item GetInput()
+\item Simulate()
+\item Render()
+\item \emph{IF} game-over goto 2)
+\item \emph{ELSE} goto step 1)
+\end{itemize}
+\item Close the game.
+\end{enumerate}
+
+\begin{verbatim}
+int main() {
+    printf("Hello World 0123");
+}
+\end{verbatim}
+\section{Probability}
+\label{sec-14}
+  LOST ALL THIS DATA FUCK!
+\{this is the only example I've found where P(A | B) doesn't just wind up being P(A). The fact that they are almost always the same is really not intuitive to me. \}
+
+\subsection{Problems}
+\label{sec-14-1}
+Given a card-game find how many copies of cards you're allowed to have in a deck if you want the probability of drawing that card to be N
+
+Find the probabilities of the different hands in poker. 
+How would you change the rules to increase the probability of getting certain hands?
+How about increasing the probability gap between the lower tier and higher tier hands (like let's say you want 30\% chance of a low-tier hand, but a 1\% chance of getting the highest hand)
+
+\section{Quotes}
+\label{sec-15}
+In my opinion, everything happens in nature in a mathematical way. 
+
+-- Renes Descarte
+
+
+
+Counting is the religion of this generation it is its hope and its salvation.
+
+-- Gertrude Stein
+
+
+
+"If you manage to look closely enough at this simulation function, you will always inevitably find some point, actually many points, where the implementation actually happens in the universe, and not from the programmer. And what the programmer has managed to do is encapsulate a bunch of these little things that the universe does until he has built up a bigger structure."
+
+-- Jonathan Blow
+\section{Vocabulary}
+\label{sec-16}
+Analogy
+
+Metaphor
+
+Parallel
+
+Horizontal
+
+Vertical
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

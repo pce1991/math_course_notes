@@ -132,11 +132,15 @@ Usually we use single letters for variables in math, but often in programming we
 * Linear Algebra
   Addition & Subtraction & Scaling
   Length
+  Normalizing vectors
   Dot product
   Cross Product
   Project onto line
   Projection matrix
   Coordinate systems
+  Homogeneous matrices
+  Quaternions (rotating a direction)
+  
 
   \begin{equation*}
     v = 
@@ -147,6 +151,46 @@ Usually we use single letters for variables in math, but often in programming we
     \end{bmatrix}
   \end{equation*}
 
+  
+
+** Dot Product
+   The dot product is a very common and useful operation in game development. The dot product of two vectors is a scalar value. One way to think about this scalar is that it represents the differece in direction between the two vectors.
+
+   We use the \( \cdot \) operator to represent the dot product.
+
+   In terms of arithmetic, the dot product is the sum of each component of one vector, multilpied by the corresponding component of another vector. 
+
+   If A and B are 2D vectors then
+
+  \begin{equation*}
+    A \cdot B = (A_x \times B_x) + (A_y \times B_y)
+  \end{equation*}
+
+  And of course in 3 dimensions you just also had the product of the \(z\) components.
+
+  \begin{equation*}
+    A \cdot B = (A_x \times B_x) + (A_y \times B_y) + (A_z \times B_z)
+  \end{equation*}
+
+  The reason the *dot product* gives us the difference is because of the following equation
+
+  \begin{equation*}
+  P \cdot Q = \lVertP\rVert\lVertB\rVert cos(\theta)
+  \end{equation*}
+  
+  # use  \usepackage{siunitx} to get \ang command
+  # use \usepackage{asmath} to get \lVert \rVert symbols
+  As the angle between the vectors \(\theta\) increases, we will be scaling \( \lVert A \rVert \lVert B \rVert \) by a smaller and smaller value, until the angle is \(\ang{90}\), at which point \(cos(\theta)\) = 0. As \(\theta\) increases past \(\ang{90}\), \(cos(\theta) < 0\), and our value is now negative, meaning that the two vectors point in different directions.
+
+  But it gets better! We can do some algebra to find out what the angle between those vectors is.
+  \begin{equation*}
+  \theta = arccos( \frac{P \cdot Q}{\lVertP\rVert \lVertQ\rVert}
+  \end{equation*}  
+*** Problems
+**** Behind
+     You cant just look at the position of a character and the forward of another character. You need posB - posA and forwardB to actually determine if something is in front or behind.
+**** Animation
+     Let's say you have a 3D model with animations for its right and left hand. When you pick up an item, you want to know if you should play the animation for your left hand, or your right hand. How would you use the dot product to find the correct animation?
 ** Matrices
    A matrix multiplied by a vector produces a new vector. We say that it "transforms" that vector.
    
@@ -156,7 +200,7 @@ Usually we use single letters for variables in math, but often in programming we
 
    EXPLAIN WHAT A LINEAR TRANSFORMATION IS AS OPPOSED TO AN ARBITRARY TRANSFORMATIONS: parallel lines remain parallel
 
-   We can say that our vector is how how many units to move along our basis vectors \hat{i} and \hat{j}
+   We can say that our vector is how how many units to move along our basis vectors \( \hat{i} \) and \( \hat{j} \)
 
    Let's put our basis vectors into a matrix
 
@@ -277,7 +321,7 @@ Usually we use single letters for variables in math, but often in programming we
      \end{bmatrix}
 \end{equation*}
         
-    Notice that our \hat{i} vector is vertical, and our \hat{j} is horizontal.
+    Notice that our \( \hat{i} \) vector is vertical, and our \( \hat{j} \) is horizontal.
 
     Now if we have a vector 
 
