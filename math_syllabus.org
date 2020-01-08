@@ -9,6 +9,8 @@
 # Documentation for latex/mathjax commands in org
 # https://orgmode.org/mathjax/docs/html/tex.html
 
+# Separate these out into different LATeX documents for easier review
+
 * Course Description
   This is an overview and introduction to the fundamental math you need for game development. 
   We do not go in depth on many topics. 
